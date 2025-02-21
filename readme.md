@@ -1,0 +1,3 @@
+# Meio Bot
+
+O projeto pessoal "just for fun". É uma iniciativa que combina técnicas avançadas de processamento de linguagem natural e aprendizado de máquina para criar um bot interativo no Discord. Utilizando um modelo de embeddings e um índice FAISS, o bot analisa mensagens dos usuários e recupera contextos relevantes de um conjunto de conversas prévias armazenadas em um arquivo JSON. Com base nesse contexto, o bot gera respostas coerentes e contextualmente apropriadas.

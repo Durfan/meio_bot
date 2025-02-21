@@ -1,0 +1,8 @@
+.env
+.venv/
+modelo_podrao/
+conversas_podroes.txt
+conversas_podroes.json
+conversas_podroes_filtrado.json
+embeddings.npy
+faiss_index.index
