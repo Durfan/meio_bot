@@ -41,7 +41,7 @@ def recuperar_contexto(query, k=3):
 
     return "\n".join(context_msgs)
 
-def chat_whatsapp(mensagem):
+def chat_response(mensagem):
     contexto = recuperar_contexto(mensagem)
 
     prompt = f"""
@@ -56,6 +56,19 @@ def chat_whatsapp(mensagem):
         model="openai/gpt-4o-mini",
         messages=[{"role": "user", "content": prompt}]
     )
+
+    error_api = "Lembrei que minha planta de estimação precisa de terapia e tenho que cuidar dela."
+    error_choices = "So um momento. Minha geladeira deu um erro 404 e preciso reiniciá-la manualmente."
+    error_none = "Já volto! Um esquilo invadiu minha casa e preciso negociar a rendição dele."
+
+    if resposta is None:
+        return error_api
+    
+    if not resposta.choices:   
+        return error_choices
+    
+    if resposta.choices[0].message is None:
+        return error_none
 
     return resposta.choices[0].message.content.strip()
 
@@ -72,14 +85,9 @@ async def on_message(message):
     if message.author.id == DEFAULT_USER_ID or message.author.display_name == DEFAULT_USER_NICKNAME:
         resposta = "ZeroDivisionError"
     else:
-        resposta = chat_whatsapp(message.content)
-
-    resposta = chat_whatsapp(message.content)
+        resposta = chat_response(message.content)
 
     channel = discord.utils.get(message.guild.text_channels, name='meiogpt')
-    if channel:
-        await channel.send(resposta)
-    else:
-        print("Canal 'meioGPT' não encontrado.")
+    await channel.send(resposta)
 
 client.run(TOKEN)
