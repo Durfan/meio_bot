@@ -48,7 +48,6 @@ def chat_response(mensagem):
     {INSTRUCTIONS}
     Aqui estão algumas mensagens anteriores para basear em sua resposta:
     {contexto}
-
     Agora responda a esta nova mensagem: "{mensagem}"
     """
     
