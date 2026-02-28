@@ -57,7 +57,7 @@ openai==1.63.2
 packaging==24.2
 parso==0.8.4
 pexpect==4.9.0
-pillow==11.1.0
+pillow==12.1.1
 pinecone==6.0.1
 pinecone-plugin-interface==0.0.7
 platformdirs==4.3.6
